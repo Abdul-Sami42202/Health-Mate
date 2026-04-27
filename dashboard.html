@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family dashboard - HealthMate</title>
+    <link rel="stylesheet" href="./src/styles.css">
+    <link rel="stylesheet" href="./src/dashboard.css">
+    <link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="header dashboard-header">
+        <div class="container">
+            <div class="header-content dashboard-header-content">
+                <div class="logo">
+                    <div class="logo-icon"><img class="logo" src="./public/Assets/logo.png" alt="HealthMate logo"></div>
+                </div>
+                <div class="dashboard-header-actions">
+                    <button class="btn btn-dashboard-add family-card-add">
+                        + Add family member
+                    </button>
+                    <button id="logoutBtn" class="btn btn-outline-grey logout-btn">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- <p>Tap a card to openthat member's page. (We'll route this to /family/:id.)</p> -->
+
+    <div id="loader" class="loader hidden"></div>
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-header-text">
+                <p class="dashboard-instruction">
+                    Tap a card to open that member's page.
+                    <span class="dashboard-hint">(We'll route this to /family/:id.)</span>
+                </p>
+            </div>
+
+            <section class="family-grid">
+                <!-- Cards of family members -->
+
+                </article>
+
+
+
+                <!-- Card: Add family member -->
+                <article class="family-card family-card-add">
+                    <button class="add-card-button">
+                        <span class="add-card-icon">+</span>
+                        <span class="add-card-text">
+                            <span class="add-card-title">Add family member</span>
+                            <span class="add-card-subtitle">Create a new card</span>
+                        </span>
+                    </button>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <!-- Overlay -->
+    <div class="modal-overlay" id="familyModal">
+        <div class="modal-card">
+
+            <h2 class="modal-title">Add family member</h2>
+
+            <div class="form-group">
+                <label>Name</label>
+                <input class="name" type="text" placeholder="e.g., Ammi" required />
+                <small class="error name-error"></small>
+            </div>
+
+            <div class="form-group">
+                <label>Relation</label>
+                <input class="relation" type="text" placeholder="e.g., Mother" required />
+                <small class="error relation-error"></small>
+            </div>
+
+            <div class="form-group">
+                <label>Color</label>
+                <div class="color-options">
+                    <div class="color-box pink active" data-color="pink"></div>
+                    <div class="color-box green" data-color="green"></div>
+                    <div class="color-box blue" data-color="blue"></div>
+                    <div class="color-box magenta" data-color="magenta"></div>
+                    <div class="color-box purple" data-color="purple"></div>
+                    <div class="color-box orange" data-color="orange"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Custom ID (optional)</label>
+                <input class="custom-id" type="text" placeholder="e.g., lovely mother" />
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-save" type="submit">Save</button>
+                <button class="btn-close" id="closeModal">Close</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <p class="copyright">© 2025 HealthMate</p>
+        </div>
+    </footer>
+
+    <script type="module" src="src/dashboard.js"></script>
+</body>
+
+</html>

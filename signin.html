@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - HealthMate</title>
+    <link rel="stylesheet" href="./src/styles.css">
+    <link rel="stylesheet" href="./src/signin.css">
+    <link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="signin-page">
+    <!-- Header -->
+    <header class="header signin-header">
+        <div class="container">
+            <div class="header-content signin-header-content">
+                <div class="logo">
+                    <div class="logo-icon"><img class="logo" src="./public/Assets/logo.png" alt=""></div>
+                    <div class="logo-text">
+                        <!-- <h1 class="logo-title">HealthMate</h1>
+                        <p class="logo-tagline">Sehat ka Smart Dost</p> -->
+                    </div>
+                </div>
+                <nav class="nav signin-nav">
+                    <a href="./index.html" class="nav-link">Home</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="./signup.html" class="btn btn-gradient">Create account</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="signin-main">
+        <div class="container">
+            <div class="signin-content">
+                <!-- Left Column - Information -->
+                <div class="signin-info">
+                    <h2 class="signin-heading">Welcome back</h2>
+                    <p class="signin-subtitle">
+                        Sign in to manage your reports, vitals, and AI insights. <span class="highlight-pink">Phir se
+                            shuru karein.</span>
+                    </p>
+
+                    <div class="signin-info-card">
+                        <div class="info-card-header">
+                            <span class="info-card-icon">✓</span>
+                            <span class="info-card-title">Your data stays yours</span>
+                        </div>
+                        <p class="info-card-text">Encrypted storage and doctor-only links. Privacy pe full focus.</p>
+                    </div>
+                </div>
+
+                <!-- Right Column - Sign-in Form -->
+                <div class="signin-form-container">
+                    <form class="signin-form" id="signinForm">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">✉️</span>
+                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="password" name="password" placeholder="Your password"
+                                    required>
+                                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                    <span class="eye-icon"><img class="hide" src="./public/Assets/hide.png"
+                                            alt=""></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember" name="remember" checked>
+                                <span class="checkbox-text">Remember me</span>
+                            </label>
+                            <a href="#forgot" class="forgot-link">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-signin">
+                            Sign in
+                            <span class="btn-arrow">→</span>
+                        </button>
+
+                        <p class="create-account-link">
+                            New here? <a href="./signup.html" class="create-account-link-text">Create account</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="signin-footer">
+        <div class="container">
+            <p class="copyright">© 2025 HealthMate</p>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/signin.js"></script>
+
+</body>
+
+</html>
