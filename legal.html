@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthMate - Legal</title>
+
+<link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+
+<!-- Shared navbar styles -->
+<link rel="stylesheet" href="./utilities/navbar.css">
+
+<link rel="stylesheet" href="./src/legal.css">
+</head>
+<body>
+
+    <!-- The shared navbar is loaded here. Do not duplicate it on this page. -->
+    <div id="navbar"></div>
+
+    <main class="main-content">
+
+        <div class="page-content">
+
+            <div class="page-header">
+                <h2 class="text-display-lg">Legal &amp; Policies</h2>
+                <p class="text-body-lg">Medical disclaimer, privacy policy, and terms of service for HealthMate.</p>
+            </div>
+
+            <!-- Tab nav -->
+            <nav class="legal-tabs" role="tablist" aria-label="Legal document sections">
+                <button class="legal-tab active" data-target="disclaimer" role="tab" aria-selected="true">
+                    <span class="material-symbols-outlined">health_and_safety</span>
+                    Medical Disclaimer
+                </button>
+                <button class="legal-tab" data-target="privacy" role="tab" aria-selected="false">
+                    <span class="material-symbols-outlined">shield_lock</span>
+                    Privacy Policy
+                </button>
+                <button class="legal-tab" data-target="terms" role="tab" aria-selected="false">
+                    <span class="material-symbols-outlined">gavel</span>
+                    Terms of Service
+                </button>
+            </nav>
+
+            <!-- Sections -->
+            <section class="legal-card" id="disclaimer" role="tabpanel">
+                <h3 class="text-title-md">Medical Disclaimer</h3>
+                <p class="legal-updated text-label-sm">Last updated: August 2026</p>
+
+                <p>HealthMate is a personal health record and organization tool. It is not a medical device, and it does not provide medical advice, diagnosis, or treatment.</p>
+
+                <p>Any AI-generated summaries, insights, or trends shown in the app (including report summaries, health tips, and pattern detection) are produced automatically and are intended to help you organize and understand your own records. They are not a substitute for professional medical judgment.</p>
+
+                <ul>
+                    <li>Always consult a qualified healthcare provider before making decisions about your health, medication, or treatment.</li>
+                    <li>Never disregard professional medical advice or delay seeking it because of something you read in this app.</li>
+                    <li>If you are experiencing a medical emergency, contact your local emergency services immediately.</li>
+                </ul>
+
+                <p>HealthMate and its creators are not liable for decisions made based on information displayed in the app.</p>
+            </section>
+
+            <section class="legal-card" id="privacy" role="tabpanel">
+                <h3 class="text-title-md">Privacy Policy</h3>
+                <p class="legal-updated text-label-sm">Last updated: August 2026</p>
+
+                <h4>What we store</h4>
+                <p>HealthMate stores the information you choose to enter: your profile details, family member profiles, uploaded medical reports, manually logged vitals, and AI-generated summaries of that data. This data is stored in your account and is only accessible to you.</p>
+
+                <h4>How uploaded reports are processed</h4>
+                <p>When AI Summary is enabled, an uploaded report is sent to a third-party AI service to generate a summary, flagged values, and suggested questions. This happens only when you choose to enable it for that upload.</p>
+
+                <h4>What we don't do</h4>
+                <ul>
+                    <li>We don't sell your health data to third parties.</li>
+                    <li>We don't share your records with anyone else, including other family members you've added, unless you take an action that explicitly does so.</li>
+                    <li>We don't use your data to train AI models.</li>
+                </ul>
+
+                <h4>Your control over your data</h4>
+                <p>You can edit or delete any report, vital entry, or family profile at any time from within the app. Deleting your account removes your stored records.</p>
+            </section>
+
+            <section class="legal-card" id="terms" role="tabpanel">
+                <h3 class="text-title-md">Terms of Service</h3>
+                <p class="legal-updated text-label-sm">Last updated: August 2026</p>
+
+                <h4>Using HealthMate</h4>
+                <p>By using HealthMate, you agree to use it to record and organize your own health information, and that of family members you have permission to add, for personal, non-commercial purposes.</p>
+
+                <h4>Account responsibility</h4>
+                <p>You're responsible for keeping your login credentials secure and for the accuracy of the information you enter. HealthMate is not responsible for decisions made based on inaccurate or incomplete information you've entered yourself.</p>
+
+                <h4>Service availability</h4>
+                <p>HealthMate is provided "as is." Features, including AI-generated summaries and insights, may change, be temporarily unavailable, or be discontinued.</p>
+
+                <h4>Changes to these terms</h4>
+                <p>These terms may be updated from time to time. Continued use of the app after changes means you accept the revised terms.</p>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script type="module" src="./utilities/navbar.js"></script>
+    <script type="module" src="./src/legal.js"></script>
+</body>
+</html>

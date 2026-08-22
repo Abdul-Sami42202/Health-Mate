@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthMate - Profile</title>
+
+    <link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+
+    <!-- Shared navbar styles -->
+    <link rel="stylesheet" href="./utilities/navbar.css">
+
+    <!-- Profile-only styles -->
+     <link rel="stylesheet" href="./src/family.css">
+    <link rel="stylesheet" href="./src/profile.css">
+</head>
+
+<body>
+    <!-- The shared navbar is loaded here. Do not duplicate it on this page. -->
+    <div id="navbar"></div>
+
+    <main class="profile-page">
+        <section class="profile-content">
+
+            <!-- Page Header -->
+            <header class="page-header">
+                <div>
+                    <h1>My Profile</h1>
+                    <p>Manage your personal information and preferences.</p>
+                </div>
+
+                <button class="edit-profile-btn" type="button">
+                    Edit Profile
+                </button>
+            </header>
+
+            <!-- Profile Grid -->
+            <div class="profile-grid">
+
+                <!-- Personal Details -->
+                <section class="card personal-card">
+                    <div class="personal-main">
+                        <div class="personal-info">
+                            <div class="profile-avatar-large">
+                                <img
+                                    src="./public/Assets/user.png"
+                                    alt="Your profile picture"
+                                >
+                            </div>
+                
+                            <div class="profile-name">
+                                <h2>Your Name</h2>
+                            </div>
+                        </div>
+                
+                        <div class="personal-details">
+                            <div class="column1">
+                                <div class="detail-item">
+                                    <span class="detail-label">Email Address</span>
+                                    <span class="detail-value" data-field="email">
+                                        <span class="material-symbols-outlined">mail</span>
+                                        abc.@example.com
+                                    </span>
+                                </div>
+                    
+                                <div class="detail-item">
+                                    <span class="detail-label">Phone Number</span>
+                                    <span class="detail-value" data-field="phone">
+                                        <span class="material-symbols-outlined">call</span>
+                                        03*********
+                                    </span>
+                                </div>
+                            </div>
+                
+                            <div class="column2">
+                                <div class="detail-item">
+                                    <span class="detail-label">Date of Birth</span>
+                                    <span class="detail-value" data-field="dob">
+                                        <span class="material-symbols-outlined">cake</span>
+                                        ##-##-##
+                                    </span>
+                                </div>
+                    
+                                <div class="detail-item">
+                                    <span class="detail-label">Blood Group</span>
+                                    <span class="detail-value blood-group" data-field="bloodGroup">
+                                        <span class="material-symbols-outlined">bloodtype</span>
+                                        not-set
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <p class="patient-id">Patient ID: #HM-8849</p>
+                </section>
+
+                <!-- Emergency Contact -->
+                <section class="card emergency-card">
+                    <div class="card-heading emergency-heading">
+                        <div class="heading-icon">
+                            <span class="material-symbols-outlined">emergency</span>
+                        </div>
+                        <h2>Emergency Contact</h2>
+                    </div>
+
+                    <div class="emergency-details">
+                        <div>
+                            <p class="contact-name">Name</p>
+                            <p class="contact-relation">relation</p>
+                        </div>
+
+                        <a class="phone-link" href="tel:+923009876543">
+                            <span>
+                                <span class="material-symbols-outlined">phone</span>
+                                03XX-XXXXXXX
+                            </span>
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Preferences -->
+                <div class="preferences-grid">
+
+                    <!-- Language -->
+                    <section class="card preference-card">
+                        <div class="card-heading">
+                            <div class="heading-icon language-icon">
+                                <span class="material-symbols-outlined">language</span>
+                            </div>
+                            <h2>Language Preferences</h2>
+                        </div>
+
+                        <div class="preference-content">
+                            <p>
+                                Select your preferred language for the interface and medical reports.
+                            </p>
+
+                            <div class="language-options">
+                                <label class="language-option selected">
+                                    <input type="radio" name="language" value="en" checked>
+                                    <span class="radio-circle"></span>
+
+                                    <span class="language-name">English</span>
+                                    <span class="default-label">Default</span>
+                                </label>
+
+                                <label class="language-option">
+                                    <input type="radio" name="language" value="ur">
+                                    <span class="radio-circle"></span>
+
+                                    <span class="language-name">Urdu (اردو)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Security -->
+                    <section class="card preference-card">
+                        <div class="card-heading">
+                            <div class="heading-icon security-icon">
+                                <span class="material-symbols-outlined">security</span>
+                            </div>
+                            <h2>Security &amp; Privacy</h2>
+                        </div>
+
+                        <div class="security-options">
+
+                            <button class="security-option" type="button">
+                                <span class="security-left">
+                                    <span class="material-symbols-outlined">lock</span>
+                                    <span>
+                                        <strong>Change Password</strong>
+                                        <small>Update your login credentials</small>
+                                    </span>
+                                </span>
+
+                                <span class="material-symbols-outlined">chevron_right</span>
+                            </button>
+
+                            <div class="security-divider"></div>
+
+                            <button class="security-option" type="button">
+                                <span class="security-left">
+                                    <span class="material-symbols-outlined">fingerprint</span>
+                                    <span>
+                                        <strong>Biometric Authentication</strong>
+                                        <small>Enable Face ID / Touch ID</small>
+                                    </span>
+                                </span>
+
+                                <span class="toggle-switch" aria-hidden="true">
+                                    <span></span>
+                                </span>
+                            </button>
+
+                            <div class="security-divider"></div>
+
+                            <button class="security-option" type="button">
+                                <span class="security-left">
+                                    <span class="material-symbols-outlined">manage_accounts</span>
+                                    <span>
+                                        <strong>Data Sharing Preferences</strong>
+                                        <small>Manage clinic access</small>
+                                    </span>
+                                </span>
+
+                                <span class="material-symbols-outlined">chevron_right</span>
+                            </button>
+
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Logout -->
+                <div class="logout-wrapper">
+                    <button class="logout-main-btn" type="button">
+                        <span class="material-symbols-outlined">logout</span>
+                        Log Out of HealthMate
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="profile-footer">
+            <h2>HealthMate</h2>
+
+            <div class="footer-links">
+                <a href="./legal.html#desclaimer">Medical Disclaimer</a>
+                <span>•</span>
+                <a href="./legal.html#privacy">Privacy Policy</a>
+                <span>•</span>
+                <a href="./legal.html#terms">Terms of Service</a>
+            </div>
+
+            <p>© 2026 HealthMate. All medical data is encrypted.</p>
+        </footer>
+    </main>
+
+    <!-- ================= EDIT PROFILE MODAL ================= -->
+
+<div
+class="modal"
+id="familyModal"
+aria-hidden="true"
+inert
+>
+
+<div class="modal-content">
+
+    <div class="modal-header">
+
+        <div>
+            <h2>Edit Profile</h2>
+            <p>Update the member's health information.</p>
+        </div>
+
+        <button
+            type="button"
+            class="close-modal"
+            id="closeModal"
+            aria-label="Close"
+        >
+            <span class="material-symbols-outlined">close</span>
+        </button>
+
+    </div>
+
+    <form id="familyForm">
+
+        <div class="form-group">
+            <label for="memberName">Full Name</label>
+            <input type="text" id="memberName" placeholder="e.g. Ahmed Raza" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="e.g. ahmedraza123@gmail.com" >
+        </div>
+
+        <div class="form-group">
+            <label for="memberRelation">Relation</label>
+            <input type="text" id="memberRelation" placeholder="e.g. Father, Mother, Brother" required>
+        </div>
+
+        <div class="form-group">
+            <label for="memberAge">Age</label>
+            <input type="number" id="memberAge" placeholder="e.g. 45" >
+        </div>
+
+        <div class="form-group">
+            <label for="memberGender">Gender</label>
+            <select id="memberGender">
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="memberImage">Profile Picture</label>
+            <input type="file" id="memberImage" accept="image/*">
+            <small class="form-hint">
+                Optional. If no picture is selected, the first letter of the name will be shown.
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="bloodGroup">Blood Group</label>
+            <select id="bloodGroup" >
+                <option value="">Select blood group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="03XX-XXXXXXX" >
+        </div>
+
+        <div class="form-group">
+            <label for="emergencyContact">Emergency Contact</label>
+            <input type="text" id="emergencyContact" placeholder="e.g. Hamza" >
+        </div>
+
+        <div class="form-group">
+            <label for="emergencyPhone">Emergency Number</label>
+            <input type="tel" id="emergencyPhone" placeholder="03XX-XXXXXXX" >
+        </div>
+
+        <div class="form-group">
+            <label for="relationWithEmergencyContact">Relation with Emergency Contact</label>
+            <input type="text" id="relationWithEmergencyContact" placeholder="e.g. Brother" >
+        </div>
+
+        <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" id="dateOfBirth" >
+        </div>
+
+        <div class="form-actions">
+            <button type="button" class="cancel-btn" id="cancelBtn">
+                Cancel
+            </button>
+
+            <button type="submit" class="save-btn">
+                <span class="material-symbols-outlined">save</span>
+                Save Changes
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+</div>
+
+    <!-- Shared navbar logic -->
+    <script type="module" src="./utilities/navbar.js"></script>
+    <script type="module" src="./src/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>HealthMate - Upload Report</title>
+
+<link rel="stylesheet" href="./src/reports.css">
+
+<link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+
+<!-- Shared navbar styles -->
+<link rel="stylesheet" href="./utilities/navbar.css">
+</head>
+<body>
+
+    <!-- The shared navbar is loaded here. Do not duplicate it on this page. -->
+    <div id="navbar"></div>
+
+<!-- Main Content Area -->
+<main class="main-content">
+
+  <!-- Page Content -->
+  <div class="page-content">
+
+    <div class="page-header">
+      <h2 class="text-display-lg">Upload Medical Report</h2>
+      <p class="text-body-lg">Securely upload your clinical documents for automated timeline integration and AI analysis.</p>
+    </div>
+
+    <div class="upload-grid">
+
+      <!-- Left Column: Upload area -->
+      <div class="upload-col-main">
+
+        <!-- Drag & Drop Zone -->
+        <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Upload a report: click or drag and drop a file">
+          <input type="file" id="fileInput" class="visually-hidden" accept=".pdf,.jpg,.jpeg,.png" multiple>
+
+          <p class="dropzone-filetypes text-label-sm">PDF, JPG, PNG (Max 15MB)</p>
+
+          <div class="dropzone-icon-circle">
+            <span class="material-symbols-outlined" data-weight="fill">cloud_upload</span>
+          </div>
+          <h3 class="text-title-md" id="dropzoneTitle">Drag &amp; Drop files here</h3>
+          <p class="dropzone-hint text-body-md" id="dropzoneHint">or click to browse your device</p>
+          <button class="dropzone-select-btn text-label-sm" type="button" tabindex="-1">Select Files</button>
+
+          <div class="dropzone-lock-note text-label-sm">
+            <span class="material-symbols-outlined">lock</span>
+            <span>End-to-end encrypted upload</span>
+          </div>
+        </div>
+
+        <!-- AI Insight Notice -->
+        <div class="ai-notice-card">
+          <div class="ai-notice-icon">
+            <span class="material-symbols-outlined">auto_awesome</span>
+          </div>
+          <div class="ai-notice-body">
+            <h4 class="text-title-md">
+              AI Summary <span id="toggle">Enabled</span>
+              <input type="checkbox" id="aiToggle" class="ai-toggle-input" checked>
+              <label for="aiToggle" class="ai-toggle-track" aria-label="Toggle AI summary">
+                <span class="ai-toggle-thumb"></span>
+              </label>
+            </h4>
+            <p class="text-body-md">
+              Gemini will analyze your report for a bilingual summary.
+              <span class="urdu-line text-body-md" dir="rtl">Gemini aapki report analyze karke Urdu mein summary dega.</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Form Details -->
+      <div class="upload-col-side">
+        <div class="form-card">
+          <h3 class="text-title-md">Report Details</h3>
+          <form id="upload-report-form">
+
+            <div class="form-field">
+              <label class="text-label-sm" for="report-title">Report Title</label>
+              <input class="text-body-md" id="report-title" placeholder="e.g. Annual Blood Panel" type="text" required >
+            </div>
+
+            <div class="form-field">
+              <label class="text-label-sm" for="report-date">Date of Test</label>
+              <div class="field-with-icon">
+                <input class="text-body-md" id="report-date" type="date" required>
+                <span class="material-symbols-outlined field-icon clickable" id="dateIcon">calendar_today</span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="text-label-sm" for="report-category">Category</label>
+              <div class="field-with-icon">
+                <select class="text-body-md" id="report-category" required>
+                  <option disabled selected value="">Select category...</option>
+                  <option value="blood">Blood Test</option>
+                  <option value="xray">X-Ray / Imaging</option>
+                  <option value="prescription">Prescription</option>
+                  <option value="discharge">Discharge Summary</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="material-symbols-outlined field-icon">expand_more</span>
+              </div>
+            </div>
+
+            <div class="form-submit">
+              <button class="btn-process text-title-md" type="submit" id="process-btn">
+                <span class="material-symbols-outlined">upload_file</span>
+                Process Report
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    <div class="footer-links">
+      <a class="text-label-sm" href="./legal.html#privacy">Privacy</a>
+      <a class="text-label-sm" href="./legal.html#terms">Terms</a>
+      <a class="text-label-sm" href="./legal.html#desclaimer">Medical Disclaimer</a>
+    </div>
+    <p class="footer-copy text-label-sm">© 2026 HealthMate AI. Clinical data for reference only. | طبی ڈیٹا صرف حوالہ کے لیے ہے۔</p>
+  </footer>
+
+</main>
+
+<script type="module" src="./utilities/navbar.js"></script>
+<script type="module" src="./src/reports.js"></script>
+</body>
+</html>

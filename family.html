@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Family Profiles - HealthMate</title>
+    
+    <link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+
+    <!-- Shared navbar styles -->
+    <link rel="stylesheet" href="./utilities/navbar.css">
+
+    <link rel="stylesheet" href="./src/family.css">
+</head>
+
+<body>
+
+    <!-- Your generated navbar goes here -->
+    <div id="navbar"></div>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- Page content -->
+        <div class="page-container">
+
+            <!-- Page heading -->
+            <section class="page-heading">
+
+                <div>
+                    <h2>Family Profiles</h2>
+
+                    <p>
+                        Your health records, your family's profiles /
+                        Apke health records, khandan ke profiles
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="add-member-btn"
+                    id="addMemberBtn"
+                >
+                    <span class="material-symbols-outlined">
+                        person_add
+                    </span>
+
+                    Add Member
+                </button>
+
+            </section>
+
+
+            <!-- ================= FAMILY GRID ================= -->
+
+            <section class="family-grid" id="familyGrid">
+
+                <!-- All cards -->
+
+            </section>
+
+        </div>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="footer">
+
+            <h2>HealthMate</h2>
+
+            <div class="footer-links">
+
+                <a href="./legal.html#desclaimer">Medical Disclaimer</a>
+                <a href="./legal.html#privacy">Privacy Policy</a>
+                <a href="./legal.html#terms">Terms of Service</a>
+
+            </div>
+
+            <p>
+                © 2026 HealthMate. All medical data is encrypted.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+
+    <!-- ================= ADD MEMBER MODAL ================= -->
+
+    <div
+        class="modal"
+        id="familyModal"
+        aria-hidden="true"
+        inert
+    >
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+                    <h2>Add Family Member</h2>
+
+                    <p>
+                        Enter the member's information.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="close-modal"
+                    id="closeModal"
+                    aria-label="Close"
+                >
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+
+            </div>
+
+
+            <!-- Add Member Form -->
+
+            <form id="familyForm">
+
+                <!-- Name -->
+                <div class="form-group">
+
+                    <label for="memberName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="memberName"
+                        placeholder="e.g. Ahmed Raza"
+                        required
+                    >
+
+                </div>
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="memberName">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="e.g. ahmedraza123@gmail.com"
+                        required
+                    >
+
+                </div>
+
+                <!-- Relation -->
+                <div class="form-group">
+
+                    <label for="relation">
+                        Relation
+                    </label>
+
+                    <input
+                        type="text"
+                        id="memberRelation"
+                        placeholder="e.g. Father, Mother, Brother"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+                    <label for="memberAge">Age</label>
+                    <input
+                        type="number"
+                        id="memberAge"
+                        placeholder="e.g. 45"
+                        required
+                    >
+                </div>
+            
+                <div class="form-group">
+                    <label for="memberGender">Gender</label>
+                    <select id="memberGender" required>
+                        <option value="">Select gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            
+                <!-- NEW PROFILE IMAGE -->
+                <div class="form-group">
+                    <label for="memberImage">Profile Picture</label>
+            
+                    <input
+                        type="file"
+                        id="memberImage"
+                        accept="image/*"
+                    >
+            
+                    <small class="form-hint">
+                        Optional. If no picture is selected, the first letter of the name will be shown.
+                    </small>
+                </div>
+
+                <!-- Blood Group -->
+                <div class="form-group">
+
+                    <label for="bloodGroup">
+                        Blood Group
+                    </label>
+
+                    <select id="bloodGroup" required>
+
+                        <option value="">Select blood group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                
+                    <label for="phone">
+                        Phone Number
+                    </label>
+                
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="03XX-XXXXXXX"
+                        required
+                    >
+                
+                </div>
+                
+
+                <!-- Emergency Contact -->
+                <div class="form-group">
+
+                    <label for="text">
+                        Emergency Contact
+                    </label>
+
+                    <input
+                        type="text"
+                        id="emergencyContact"
+                        placeholder="e.g. Hamza"
+                        required
+                    >
+
+                </div>
+                <div class="form-group">
+
+                    <label for="phone">
+                        Emergency Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="emergencyPhone"
+                        placeholder="03XX-XXXXXXX"
+                        required
+                    >
+
+                </div>
+                <div class="form-group">
+
+                    <label for="text">
+                       Relation with Emergency Contact
+                    </label>
+
+                    <input
+                        type="text"
+                        id="relationWithEmergencyContact"
+                        placeholder="e.g. Brother"
+                        required
+                    >
+
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="form-group">
+
+                    <label for="dateOfBirth">
+                        Date of Birth
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dateOfBirth"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Buttons -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelBtn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        <span class="material-symbols-outlined">
+                            person_add
+                        </span>
+
+                        Add Member
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script type="module" src="./src/family.js"></script>
+    <script type="module" src="./utilities/navbar.js"></script> 
+</body>
+</html>

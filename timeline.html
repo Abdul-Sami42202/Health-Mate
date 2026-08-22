@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthMate - Timeline</title>
+
+
+<link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+<link rel="stylesheet" href="./src/dashboard.css">
+<!-- Page-specific styles for the Timeline view -->
+<link rel="stylesheet" href="./src/timeline.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+
+<!-- Shared navbar styles -->
+<link rel="stylesheet" href="./utilities/navbar.css">
+</head>
+<body>
+
+    <!-- The shared navbar is loaded here. Do not duplicate it on this page. -->
+    <div id="navbar"></div>
+
+<!-- Main Content Area -->
+<main class="main-content">
+
+  <!-- Timeline Content -->
+  <div class="dashboard-content">
+
+    <div class="welcome-section timeline-header">
+      <div class="timeline-header-text">
+        <h2 class="text-display-lg">Health Timeline</h2>
+        <p class="text-body-lg">Your chronological medical history and vitals log.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="timeline-filters" role="group" aria-label="Filter timeline by type">
+        <button class="filter-chip text-label-sm active" data-filter="all" aria-pressed="true">
+          All
+        </button>
+        <button class="filter-chip text-label-sm" data-filter="report" aria-pressed="false">
+          <span class="material-symbols-outlined">description</span> Reports
+        </button>
+        <button class="filter-chip text-label-sm" data-filter="vital" aria-pressed="false">
+          <span class="material-symbols-outlined">favorite</span> Vitals
+        </button>
+        <button class="filter-chip text-label-sm" data-filter="ai" aria-pressed="false">
+          <span class="material-symbols-outlined">auto_awesome</span> AI Insights
+        </button>
+      </div>
+    </div>
+
+    <!-- Timeline Rail -->
+    <div class="timeline-rail" id="timelineRail">
+
+    </div>
+
+    <!-- Empty state, shown by JS when a filter has no matches -->
+    <div class="timeline-empty" id="timelineEmpty">
+      <span class="material-symbols-outlined">search_off</span>
+      <p class="text-body-md">No entries match this filter yet.</p>
+    </div>
+
+  </div>
+
+  <!-- Footer — identical markup/styles to dashboard.html -->
+  <footer class="dashboard-footer">
+    <p class="footer-brand text-title-md">HealthMate AI</p>
+    <div class="footer-links">
+      <a class="text-label-sm" href="./legal.html#privacy">Privacy</a>
+      <a class="text-label-sm" href="./legal.html#terms">Terms</a>
+      <a class="text-label-sm" href="./legal.html#desclaimer">Medical Disclaimer</a>
+    </div>
+    <p class="footer-copy text-label-sm">© 2026 HealthMate AI. Clinical data for reference only. | طبی ڈیٹا صرف حوالہ کے لیے ہے۔</p>
+  </footer>
+
+</main>
+
+<script type="module" src="./utilities/navbar.js"></script>
+<script type="module" src="./src/timeline.js"></script>
+</body>
+</html>

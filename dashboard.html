@@ -1,122 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family dashboard - HealthMate</title>
-    <link rel="stylesheet" href="./src/styles.css">
-    <link rel="stylesheet" href="./src/dashboard.css">
-    <link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthMate Dashboard</title>
+
+<link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+<link rel="stylesheet" href="./src/dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+
+    <!-- Shared navbar styles -->
+    <link rel="stylesheet" href="./utilities/navbar.css">
+  </head>
 </head>
+<body>
 
-<body class="dashboard-page">
-    <!-- Header -->
-    <header class="header dashboard-header">
-        <div class="container">
-            <div class="header-content dashboard-header-content">
-                <div class="logo">
-                    <div class="logo-icon"><img class="logo" src="./public/Assets/logo.png" alt="HealthMate logo"></div>
-                </div>
-                <div class="dashboard-header-actions">
-                    <button class="btn btn-dashboard-add family-card-add">
-                        + Add family member
-                    </button>
-                    <button id="logoutBtn" class="btn btn-outline-grey logout-btn">
-                        Logout
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- <p>Tap a card to openthat member's page. (We'll route this to /family/:id.)</p> -->
-
-    <div id="loader" class="loader hidden"></div>
-    <!-- Main Content -->
-    <main class="dashboard-main">
-        <div class="container">
-            <div class="dashboard-header-text">
-                <p class="dashboard-instruction">
-                    Tap a card to open that member's page.
-                    <span class="dashboard-hint">(We'll route this to /family/:id.)</span>
-                </p>
-            </div>
-
-            <section class="family-grid">
-                <!-- Cards of family members -->
-
-                </article>
+    <!-- The shared navbar is loaded here. Do not duplicate it on this page. -->
+    <div id="navbar"></div>
 
 
+<!-- Main Content Area -->
+<main class="main-content">
 
-                <!-- Card: Add family member -->
-                <article class="family-card family-card-add">
-                    <button class="add-card-button">
-                        <span class="add-card-icon">+</span>
-                        <span class="add-card-text">
-                            <span class="add-card-title">Add family member</span>
-                            <span class="add-card-subtitle">Create a new card</span>
-                        </span>
-                    </button>
-                </article>
-            </section>
-        </div>
-    </main>
+  <!-- Dashboard Content -->
+  <div class="dashboard-content" id="main">
 
-    <!-- Overlay -->
-    <div class="modal-overlay" id="familyModal">
-        <div class="modal-card">
-
-            <h2 class="modal-title">Add family member</h2>
-
-            <div class="form-group">
-                <label>Name</label>
-                <input class="name" type="text" placeholder="e.g., Ammi" required />
-                <small class="error name-error"></small>
-            </div>
-
-            <div class="form-group">
-                <label>Relation</label>
-                <input class="relation" type="text" placeholder="e.g., Mother" required />
-                <small class="error relation-error"></small>
-            </div>
-
-            <div class="form-group">
-                <label>Color</label>
-                <div class="color-options">
-                    <div class="color-box pink active" data-color="pink"></div>
-                    <div class="color-box green" data-color="green"></div>
-                    <div class="color-box blue" data-color="blue"></div>
-                    <div class="color-box magenta" data-color="magenta"></div>
-                    <div class="color-box purple" data-color="purple"></div>
-                    <div class="color-box orange" data-color="orange"></div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Custom ID (optional)</label>
-                <input class="custom-id" type="text" placeholder="e.g., lovely mother" />
-            </div>
-
-            <div class="modal-actions">
-                <button class="btn-save" type="submit">Save</button>
-                <button class="btn-close" id="closeModal">Close</button>
-            </div>
-
-        </div>
+    <div class="welcome-section">
+      <h2 class="text-display-lg">Welcome!</h2>
     </div>
 
-    <!-- Footer -->
-    <footer class="dashboard-footer">
-        <div class="container">
-            <p class="copyright">© 2025 HealthMate</p>
+    <div class="dashboard-grid">
+
+      <!-- Left/Main Column -->
+      <div class="main-column">
+
+        <!-- Vitals -->
+        <section id="vitalsSection">
+          <h3 class="section-title text-title-md">Recent Vitals</h3>
+        
+          <div class="vitals-grid" id="vitalsGrid" style="display: none;">
+            <a class="vital-card" id="vitalCard-Blood Pressure" href="#" data-type="Blood Pressure">
+              <div class="vital-card-header">
+                <div class="vital-icon"><span class="material-symbols-outlined">favorite</span></div>
+                <span class="vital-label text-body-md">Blood Pressure</span>
+              </div>
+              <div class="vital-value-wrap">
+                <span class="vital-value text-display-lg">--</span>
+                <span class="vital-unit text-body-md">mmHg</span>
+              </div>
+              <div class="vital-chart"></div>
+            </a>
+        
+            <a class="vital-card" id="vitalCard-Blood Sugar" href="#" data-type="Blood Sugar">
+              <div class="vital-card-header">
+                <div class="vital-icon"><span class="material-symbols-outlined">water_drop</span></div>
+                <span class="vital-label text-body-md">Sugar</span>
+              </div>
+              <div class="vital-value-wrap">
+                <span class="vital-value text-display-lg">--</span>
+                <span class="vital-unit text-body-md">mg/dL</span>
+              </div>
+              <div class="vital-chart"></div>
+            </a>
+        
+            <a class="vital-card" id="vitalCard-Weight" href="#" data-type="Weight">
+              <div class="vital-card-header">
+                <div class="vital-icon"><span class="material-symbols-outlined">monitor_weight</span></div>
+                <span class="vital-label text-body-md">Weight</span>
+              </div>
+              <div class="vital-value-wrap">
+                <span class="vital-value text-display-lg">--</span>
+                <span class="vital-unit text-body-md">kg</span>
+              </div>
+              <div class="vital-chart"></div>
+            </a>
+          </div>
+        
+          <div class="empty-state" id="vitalsEmpty">
+            <span class="material-symbols-outlined">favorite</span>
+            <p class="text-body-md">No vitals logged yet. Use the form to add your first entry.</p>
+          </div>
+        </section>
+
+        <!-- Recent Reports -->
+        <section>
+          <div class="section-header-row">
+            <h3 class="text-title-md" style="margin:0;">Recent Reports</h3>
+            <a class="link-btn text-label-sm" href="timeline.html">View All</a>
+          </div>
+        
+          <div class="reports-card" id="reportsCard" style="display: none;">
+            <div class="timeline" id="dashboardReportsTimeline"></div>
+          </div>
+        
+          <div class="empty-state" id="reportsEmpty">
+            <span class="material-symbols-outlined">description</span>
+            <p class="text-body-md">No reports uploaded yet.</p>
+            <a class="link-btn text-label-sm" href="reports.html">Upload your first report</a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right/Utility Column -->
+      <div class="side-column">
+
+        <!-- AI Insight -->
+        <section class="glass-ai ai-shimmer ai-insight-card" id="aiTipCard" style="display: none;">
+          <div class="ai-insight-header">
+            <span class="material-symbols-outlined">auto_awesome</span>
+            <h3 class="text-title-md">AI Tip of the Day</h3>
+          </div>
+          <p class="text-body-md" id="aiTipText">Loading...</p>
+        </section>
+        
+        <div class="empty-state" id="aiTipEmpty">
+          <span class="material-symbols-outlined">auto_awesome</span>
+          <p class="text-body-md">Log a few vitals to unlock your daily AI tip.</p>
         </div>
-    </footer>
 
-    <script type="module" src="src/dashboard.js"></script>
+        <!-- Manual Quick Entry -->
+        <section class="manual-entry-card">
+          <h3 class="text-title-md">Manual Entry</h3>
+          <form>
+            <div class="form-field">
+              <label class="text-label-sm">Vital Sign</label>
+              <select class="text-body-md">
+                <option>Blood Pressure</option>
+                <option>Blood Sugar</option>
+                <option>Weight</option>
+              </select>
+              <div class="select-arrow">
+                <span class="material-symbols-outlined" style="font-size: 20px;">expand_more</span>
+              </div>
+            </div>
+            <div class="form-field">
+              <label class="text-label-sm">Value</label>
+              <input class="text-body-md" placeholder="e.g. 120/80" type="text"/>
+            </div>
+            <button class="btn-save text-label-sm" type="button">Save Entry</button>
+          </form>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    <p class="footer-brand text-title-md">HealthMate AI</p>
+    <div class="footer-links">
+      <a class="text-label-sm" href="./legal.html#privacy">Privacy</a>
+      <a class="text-label-sm" href="./legal.html#terms">Terms and Reference</a>
+      <a class="text-label-sm" href="./legal.html#desclaimer">Medical Disclaimer</a>
+    </div>
+    <p class="footer-copy text-label-sm">© 2026 HealthMate AI. Clinical data for reference only. | طبی ڈیٹا صرف حوالہ کے لیے ہے۔</p>
+  </footer>
+
+</main>
+
+<script type="module" src="./utilities/navbar.js"></script>
+<script type="module" src="./src/dashboard.js"></script>
 </body>
-
 </html>

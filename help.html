@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthMate - Help</title>
+
+<link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+
+<!-- Shared navbar styles -->
+<link rel="stylesheet" href="./utilities/navbar.css">
+
+<link rel="stylesheet" href="./src/help.css">
+</head>
+<body>
+
+    <!-- The shared navbar is loaded here. Do not duplicate it on this page. -->
+    <div id="navbar"></div>
+
+    <main class="main-content">
+
+        <div class="page-content">
+
+            <div class="page-header">
+                <h2 class="text-display-lg">Help &amp; FAQs</h2>
+                <p class="text-body-lg">Everything you need to know about using HealthMate.</p>
+            </div>
+
+            <div class="help-grid">
+
+                <details class="help-item" open>
+                    <summary>
+                        <span class="material-symbols-outlined">dashboard</span>
+                        Dashboard
+                        <span class="material-symbols-outlined chevron">expand_more</span>
+                    </summary>
+                    <div class="help-item-body">
+                        <p>Your Dashboard shows your most recent vitals, your latest uploaded reports, and an AI-generated health tip based on your recent entries.</p>
+                        <p>Use the <strong>Manual Entry</strong> form to log a Blood Pressure, Blood Sugar, or Weight reading. Once you've logged a few, your vitals cards will show a trend chart, and an AI tip will appear once a day based on your latest readings.</p>
+                    </div>
+                </details>
+
+                <details class="help-item">
+                    <summary>
+                        <span class="material-symbols-outlined">description</span>
+                        Uploading Reports
+                        <span class="material-symbols-outlined chevron">expand_more</span>
+                    </summary>
+                    <div class="help-item-body">
+                        <p>Go to <strong>Reports</strong> to upload a lab report or scan (PDF, JPG, or PNG). Fill in the title, date, and category, then choose whether to enable <strong>AI Summary</strong>.</p>
+                        <p>With AI Summary enabled, HealthMate analyzes your report and generates a plain-language summary, flags any values outside the normal range, suggests questions for your doctor, and gives basic dietary guidance. With it disabled, only the report itself is saved and shown.</p>
+                        <p>Every report you've processed appears on your <strong>Timeline</strong>, and can be viewed, downloaded as a PDF, or shared at any time.</p>
+                    </div>
+                </details>
+
+                <details class="help-item">
+                    <summary>
+                        <span class="material-symbols-outlined">timeline</span>
+                        Timeline
+                        <span class="material-symbols-outlined chevron">expand_more</span>
+                    </summary>
+                    <div class="help-item-body">
+                        <p>The Timeline brings together your uploaded reports, logged vitals, and AI-generated insights in one chronological view, grouped by month.</p>
+                        <p>Use the filter chips at the top to show only Reports, only Vitals, or only AI Insights. Every entry can be deleted directly from its card, except for AI insights, which regenerate automatically.</p>
+                    </div>
+                </details>
+
+                <details class="help-item">
+                    <summary>
+                        <span class="material-symbols-outlined">family_restroom</span>
+                        Family Profiles
+                        <span class="material-symbols-outlined chevron">expand_more</span>
+                    </summary>
+                    <div class="help-item-body">
+                        <p>Add family members from the <strong>Family</strong> page to keep their contact details, blood group, and emergency contact information in one place.</p>
+                        <p>Health records (reports, vitals, and AI insights) are tracked only for your own account, so family member profiles show contact and identification details rather than health data.</p>
+                        <p>Your own profile card is marked <strong>Primary</strong> and can't be removed, since it's linked to your account.</p>
+                    </div>
+                </details>
+
+                <details class="help-item">
+                    <summary>
+                        <span class="material-symbols-outlined">person</span>
+                        Your Profile
+                        <span class="material-symbols-outlined chevron">expand_more</span>
+                    </summary>
+                    <div class="help-item-body">
+                        <p>Your Profile page shows your personal details, emergency contact, and preferences. Tap <strong>Edit Profile</strong> to update any of this information, including your profile picture.</p>
+                    </div>
+                </details>
+
+                <details class="help-item">
+                    <summary>
+                        <span class="material-symbols-outlined">privacy_tip</span>
+                        Privacy &amp; Data
+                        <span class="material-symbols-outlined chevron">expand_more</span>
+                    </summary>
+                    <div class="help-item-body">
+                        <p>Your records are only accessible from your own account. See the full details in our <a href="./legal.html#privacy">Privacy Policy</a>.</p>
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="help-contact-card">
+                <div class="help-contact-heading">
+                    <span class="material-symbols-outlined">support_agent</span>
+                    <div>
+                        <h3 class="text-title-md">Still need help?</h3>
+                        <p class="text-body-md">Send us a message and we'll get back to you.</p>
+                    </div>
+                </div>
+            
+                <form id="supportForm" class="support-form">
+                    <div class="form-field">
+                        <label class="text-label-sm" for="supportEmail">Your Email</label>
+                        <input class="text-body-md" id="supportEmail" type="email" placeholder="you@example.com" required>
+                    </div>
+                
+                    <div class="form-field">
+                        <label class="text-label-sm" for="supportSubject">Subject</label>
+                        <input class="text-body-md" id="supportSubject" type="text" placeholder="e.g. Trouble uploading a report" required>
+                    </div>
+                
+                    <div class="form-field">
+                        <label class="text-label-sm" for="supportMessage">Message</label>
+                        <textarea class="text-body-md" id="supportMessage" rows="4" placeholder="Describe your question or issue..." required></textarea>
+                    </div>
+                
+                    <button class="btn-submit-support text-label-sm" type="submit" id="supportSubmitBtn">
+                        <span class="material-symbols-outlined">send</span>
+                        Send Message
+                    </button>
+                
+                    <p class="support-success text-label-sm" id="supportSuccess">Message sent — we'll reply to your email soon.</p>
+                </form>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script type="module" src="./src/help.js"></script>
+    <script type="module" src="./utilities/navbar.js"></script>
+</body>
+</html>

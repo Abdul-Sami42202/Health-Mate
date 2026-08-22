@@ -1,0 +1,250 @@
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+@media (min-width: 840px) {
+    .main-content {
+        margin-left: 272px;
+    }
+}
+
+.page-content {
+    flex: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px var(--container-margin);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-gap);
+}
+
+.page-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.page-header h2 {
+    margin: 0;
+    color: var(--on-surface);
+}
+
+.page-header p {
+    margin: 0;
+    color: var(--on-surface-variant);
+}
+
+/* =========================
+   ACCORDION
+   ========================= */
+
+.help-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.help-item {
+    background-color: var(--surface-container-lowest);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--outline-variant);
+    overflow: hidden;
+}
+
+.help-item summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: var(--card-padding);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--on-surface);
+    list-style: none;
+}
+
+.help-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.help-item summary > .material-symbols-outlined:first-child {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.help-item summary .chevron {
+    margin-left: auto;
+    color: var(--outline);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.help-item[open] summary .chevron {
+    transform: rotate(180deg);
+}
+
+.help-item summary:hover {
+    background-color: var(--surface-container-low);
+}
+
+.help-item-body {
+    padding: 0 var(--card-padding) var(--card-padding);
+    border-top: 1px solid var(--outline-variant);
+    padding-top: 16px;
+}
+
+.help-item-body p {
+    margin: 0 0 12px;
+    color: var(--on-surface-variant);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.help-item-body p:last-child {
+    margin-bottom: 0;
+}
+
+.help-item-body a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* =========================
+   CONTACT CARD
+   ========================= */
+
+.help-contact-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(135deg, rgba(0, 78, 105, 0.08), rgba(122, 241, 252, 0.12));
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-xl);
+    padding: var(--card-padding);
+}
+
+.help-contact-card .material-symbols-outlined {
+    font-size: 32px;
+    color: var(--tertiary);
+    flex-shrink: 0;
+}
+
+
+.help-contact-card h3 {
+    margin: 0 0 4px;
+    color: var(--on-surface);
+}
+
+.help-contact-card p {
+    margin: 0;
+    color: var(--on-surface-variant);
+}
+
+
+@media (max-width: 480px) {
+    .help-contact-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.help-contact-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.help-contact-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.support-form .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.support-form label {
+    color: var(--on-surface-variant);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.support-form input,
+.support-form textarea {
+    width: 100%;
+    background-color: var(--surface);
+    border: 1px solid var(--outline-variant);
+    color: var(--on-surface);
+    border-radius: var(--radius-lg);
+    padding: 12px 16px;
+    outline: none;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.support-form input:focus,
+.support-form textarea:focus {
+    border-color: var(--primary);
+    box-shadow: var(--focus-ring);
+}
+
+.btn-submit-support {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary);
+    color: var(--on-primary);
+    padding: 12px 24px;
+    border-radius: var(--radius-xl);
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit-support:hover {
+    background-color: var(--on-primary-fixed-variant);
+}
+
+.btn-submit-support:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-submit-support .material-symbols-outlined {
+    color: #ced5d7;   /* warm accent, stands out against the primary blue button */
+}
+
+.support-success {
+    color: var(--secondary);
+    display: none;
+    align-items: center;
+    gap: 6px;
+}
+
+.support-success.visible {
+    display: flex;
+}
+
+@media (max-width: 480px) {
+    .btn-submit-support {
+        align-self: stretch;
+        justify-content: center;
+    }
+}
