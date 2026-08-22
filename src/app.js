@@ -12,3 +12,9 @@ signInBtns.forEach(btn => {
         window.location.href = "./signin.html";
     });
 });
+
+const joinBtn = document.querySelector('.join-button')
+
+joinBtn.addEventListener('click', () => {
+    window.location.href = "./signup.html";
+});
