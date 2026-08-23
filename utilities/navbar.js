@@ -3,7 +3,7 @@ import { getFamilyMember, requireAuth, signOutFunction } from "../src/firebase";
 // Load shared navbar
 const navbarContainer = document.getElementById("navbar");
 
-fetch("./utilities/navbar.html")
+fetch("/utilities/navbar.html")
     .then(response => {
         if (!response.ok) {
             throw new Error("Navbar could not be loaded");
