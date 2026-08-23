@@ -1,5 +1,6 @@
 import { getCurrentUserName, requireAuth, createVital, loadVitals, loadRecentReports, getLatestTip, saveTip } from "./firebase.js";
 import { showLoader, hideLoader } from "../utilities/loader";
+import { setError } from "../utilities/errorMessage.js";
 
 const welcome = document.querySelector(".text-display-lg");
 
@@ -189,13 +190,17 @@ const saveBtn = document.querySelector(".btn-save");
 saveBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
+    const ERROR_ID = "vital-form-error"; // one id, reused everywhere
+
     const type = vitalTypeSelect.value;
     const value = vitalValueInput.value.trim();
 
     if (!value) {
-        alert("Please enter a value.");
+        setError(vitalForm, ERROR_ID, "Please enter a value.");
         return;
     }
+
+    setError(vitalForm, ERROR_ID, null); // clear any previous error before proceeding
 
     saveBtn.disabled = true;
     const originalText = saveBtn.textContent;
@@ -204,10 +209,11 @@ saveBtn.addEventListener("click", async (e) => {
     try {
         await createVital({ type, value });
         vitalValueInput.value = "";
-        await loadDashboard(); // ✅ refresh everything with the new entry included
+        await loadDashboard();
+
     } catch (error) {
         console.error("Failed to save vital:", error);
-        alert("Failed to save. Please try again.");
+        setError(vitalForm, ERROR_ID, "Failed to save. Please try again.");
     } finally {
         saveBtn.disabled = false;
         saveBtn.textContent = originalText;

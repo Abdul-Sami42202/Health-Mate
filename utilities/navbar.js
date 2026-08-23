@@ -22,7 +22,7 @@ fetch("./utilities/navbar.html")
         requireAuth(async (user) => {
             const sidebarAvatar = document.querySelector('.sidebar-avatar')
             const me = await getFamilyMember("you");
-            sidebarAvatar.src = me.image || "../public/Assets/user.png"
+            sidebarAvatar.src = me?.image || "../public/Assets/user.png"
         });
 
     })
