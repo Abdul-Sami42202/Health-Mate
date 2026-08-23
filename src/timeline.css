@@ -2,14 +2,14 @@
    TIMELINE PAGE HEADER + FILTERS
    ========================= */
 
-   .timeline-header {
+   .welcome-section {
     flex-direction: column;
     align-items: stretch;
     gap: 20px;
 }
 
 @media (min-width: 640px) {
-    .timeline-header {
+    .welcome-section {
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
