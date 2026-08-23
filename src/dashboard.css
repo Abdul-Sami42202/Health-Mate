@@ -78,7 +78,6 @@
 .welcome-section {
     margin-bottom: var(--section-gap);
     display: flex;
-    flex-direction: column;
     gap: 8px;
 }
 
