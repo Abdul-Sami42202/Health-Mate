@@ -4,6 +4,7 @@ import {
     loadVitals, deleteVital,
     getLatestInsight, saveInsight
 } from "./firebase";
+import { showLoader, hideLoader } from "../utilities/loader";
 
 const timelineRail = document.getElementById("timelineRail");
 const timelineEmpty = document.getElementById("timelineEmpty");
@@ -13,7 +14,12 @@ let allEvents = []; // reports + vitals, merged
 let currentFilter = "all";
 
 requireAuth(async () => {
-    await loadTimeline();
+    showLoader();
+    try {
+        await loadTimeline();
+    } finally {
+        hideLoader();
+    }
 });
 
 async function loadTimeline() {

@@ -8,6 +8,7 @@
 
 
   <link rel="shortcut icon" href="./public/Assets/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="./utilities/loader.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +36,7 @@
           <button class="sign-up">Sign Up</button>
         </div>
 
-        <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open menu">
+        <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open menu" aria-expanded="false">
           <span class="material-symbols-outlined">menu</span>
         </button>
       </div>
@@ -199,13 +200,30 @@
     </div>
 
     <div class="footer-links">
-      <a href="./legal.html#desclaimer">Medical Disclaimer</a>
+      <a href="./legal.html#disclaimer">Medical Disclaimer</a>
       <a href="./legal.html#privacy">Privacy Policy</a>
       <a href="./legal.html#terms">Terms of Service</a>
     </div>
 
     <p>© 2026 HealthMate. All medical data is encrypted.</p>
   </footer>
+
+  <!-- ================= DEMO VIDEO MODAL ================= -->
+
+<div class="video-modal" id="videoModal" aria-hidden="true">
+  <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+
+  <div class="video-modal-content">
+      <button type="button" class="video-modal-close" id="videoModalClose" aria-label="Close video">
+          <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <video id="demoVideo" controls>
+          <source src="./public/Assets/demo-video.mp4" type="video/mp4">
+          Your browser doesn't support embedded video.
+      </video>
+  </div>
+</div>
 
   <script type="module" src="./src/app.js"></script>
 </body>

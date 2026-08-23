@@ -1,5 +1,6 @@
 import { familyMembersData, deleteFamilyMember, loadFamilyMembers, ensureYouCardExists, updateFamilyMember, requireAuth, loadReports, loadVitals } from "./firebase";
 import { uploadToCloudinary } from "./cloudinary";
+import { showLoader, hideLoader } from "../utilities/loader";
 
 const addMemberBtn = document.getElementById("addMemberBtn");
 const mobileAddMemberBtn = document.getElementById("mobileAddMemberBtn");
@@ -36,12 +37,13 @@ const familyMembersMap = new Map();
 let editingMemberId = null;
 
 requireAuth(async (user) => {
-    const { isNew, data } = await ensureYouCardExists(user);
-
-    await renderFamilyMembers(); // this will now include the "you" doc automatically
-
-    if (isNew) {
-        openSelfSetupModal(data); // prompt them to fill in the rest (DOB, phone, blood group, etc.)
+    showLoader();
+    try {
+        const { isNew, data } = await ensureYouCardExists(user);
+        await renderFamilyMembers();
+        if (isNew) openSelfSetupModal(data);
+    } finally {
+        hideLoader();
     }
 });
 
@@ -303,6 +305,7 @@ familyForm.addEventListener("submit", (e) => {
     const file = memberImage.files[0];
 
     async function buildCard(image) {
+        showLoader();
         try {
             let imageUrl = image;
 
@@ -366,6 +369,8 @@ familyForm.addEventListener("submit", (e) => {
         } catch (error) {
             console.error("Failed to save family member:", error);
             alert("Something went wrong saving this member. Please try again.");
+        } finally {
+        hideLoader();
         }
     }
 
@@ -612,6 +617,7 @@ function createFamilyCard({
     if (!isSelf) {
         card.querySelector(".delete-btn").addEventListener("click", async (e) => {
             e.stopPropagation();
+            showLoader()
             try {
                 await deleteFamilyMember(id);
                 card.remove();
@@ -619,6 +625,8 @@ function createFamilyCard({
             } catch (error) {
                 console.error("Delete failed:", error);
                 alert("Couldn't delete this member. Try again.");
+            } finally {
+                hideLoader();
             }
         });
     }

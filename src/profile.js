@@ -6,8 +6,7 @@ import {
     signOutFunction
 } from "../src/firebase";
 import { uploadToCloudinary } from "./cloudinary";
-
-requireAuth();
+import { showLoader, hideLoader } from "../utilities/loader";
 
 document.querySelectorAll('input[name="language"]').forEach(input => {
     input.addEventListener("change", () => {
@@ -68,6 +67,7 @@ requireAuth(async (user) => {
 });
 
 async function loadProfile() {
+    showLoader();
     try {
         const member = await getFamilyMember(memberId);
 
@@ -82,6 +82,8 @@ async function loadProfile() {
 
     } catch (error) {
         console.error("Failed to load profile:", error);
+    } finally {
+        hideLoader();
     }
 }
 

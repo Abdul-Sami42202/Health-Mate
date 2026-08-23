@@ -1,11 +1,17 @@
 import { getCurrentUserName, requireAuth, createVital, loadVitals, loadRecentReports, getLatestTip, saveTip } from "./firebase.js";
+import { showLoader, hideLoader } from "../utilities/loader";
 
 const welcome = document.querySelector(".text-display-lg");
 
 requireAuth(async (user) => {
-    const userName = await getCurrentUserName(user.uid);
-    welcome.textContent = `Welcome, ${userName}!`;
-    await loadDashboard();
+    showLoader();
+    try {
+        const userName = await getCurrentUserName(user.uid);
+        welcome.textContent = `Welcome, ${userName}!`;
+        await loadDashboard();
+    } finally {
+        hideLoader();
+    }
 });
 
 async function loadDashboard() {

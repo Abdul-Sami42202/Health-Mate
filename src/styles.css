@@ -223,6 +223,75 @@
     display: none;
   }
   
+
+  /* =========================
+   DEMO VIDEO MODAL
+   ========================= */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.video-modal.active {
+  display: flex;
+}
+
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 28, 48, 0.75);
+}
+
+.video-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: #000;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.video-modal-content video {
+  width: 100%;
+  max-height: 80vh;
+  display: block;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.video-modal-close:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 600px) {
+  .video-modal-content {
+      border-radius: var(--radius-lg);
+  }
+}
   /* ==============================
      MAIN / HERO
      ============================== */
@@ -649,7 +718,6 @@
     border-radius: var(--radius-2xl);
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.08);
   }
-  
   /* ==============================
      FOOTER
      ============================== */
@@ -724,12 +792,29 @@
      RESPONSIVE DESIGN
      ============================== */
   
-  @media (max-width: 900px) {
+  @media (max-width: 840px) {
     .desktop-nav,
     .auth-buttons {
       display: none;
     }
-  
+    
+    .mobile-nav a,
+    .mobile-nav .mobile-sign-in {
+        transition: background-color 0.2s ease, padding-left 0.2s ease, color 0.2s ease;
+    }
+
+    .mobile-nav a:hover,
+    .mobile-nav .mobile-sign-in:hover {
+        background: rgba(0, 94, 184, 0.12);
+        color: var(--primary);
+        padding-left: 20px;
+    }
+
+    .mobile-nav .mobile-sign-up:hover {
+        background: #003b76;
+        box-shadow: 0 4px 12px rgba(0, 71, 141, 0.25);
+    }
+
     .mobile-menu-button {
       display: flex;
       align-items: center;

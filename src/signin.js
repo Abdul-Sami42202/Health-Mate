@@ -2,6 +2,7 @@ import { setError } from "../utilities/errorMessage.js";
 import { setupPasswordToggle } from "../utilities/passwordToggler.js";
 import { auth, signInFunction } from "./firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
+import { showLoader, hideLoader } from "../utilities/loader";
 
 
 onAuthStateChanged(auth, (user) => {
@@ -80,7 +81,7 @@ form?.addEventListener("submit", async (e) => {
     // -------------------------
     // Firebase Sign In
     // -------------------------
-
+    showLoader();
     try {
 
         await signInFunction(email, password);
@@ -107,5 +108,7 @@ form?.addEventListener("submit", async (e) => {
 
             setError(form, "signin-error", "Sign in failed. Please try again.");
         }
+    } finally {
+        hideLoader();
     }
 });

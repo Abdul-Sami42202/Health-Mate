@@ -2,6 +2,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, signUpFunction } from "./firebase.js";
 import { setError } from "../utilities/errorMessage.js";
 import { setupPasswordToggle } from "../utilities/passwordToggler.js";
+import { showLoader, hideLoader } from "../utilities/loader";
 
 // onAuthStateChanged(auth, (user) => {
 //     if (user) {
@@ -44,6 +45,7 @@ form.addEventListener('submit', async function (e) {
         return setError(form, "signup-error", "Password must be at least 8 characters.");
     }
 
+    showLoader();
     try {
         await signUpFunction(userName, email, password); // ✅ await here
         alert("Account created successfully!");
@@ -60,5 +62,7 @@ form.addEventListener('submit', async function (e) {
         } else {
             setError(form, "signup-error", "Account creation failed. Please try again.");
         }
+    } finally {
+        hideLoader();
     }
 });

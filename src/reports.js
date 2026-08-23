@@ -1,6 +1,7 @@
 import { setError } from "../utilities/errorMessage";
 import { uploadToCloudinary } from "./cloudinary";
 import { createReport, requireAuth } from "./firebase";
+import { showLoader, hideLoader } from "../utilities/loader";
 
 requireAuth();
 
@@ -100,6 +101,7 @@ form.addEventListener('submit', async (e) => {
     processBtn.disabled = true;
     processBtn.textContent = "Processing...";
 
+    showLoader();
     try {
         // 1. Upload the file to Cloudinary (as you already do for images)
         const fileUrl = await uploadToCloudinary(file);
@@ -139,6 +141,8 @@ form.addEventListener('submit', async (e) => {
         setError(form, 'file-error', 'Something went wrong. Please try again.');
         processBtn.disabled = false;
         processBtn.textContent = "Process Report";
+    } finally {
+        hideLoader();
     }
 });
 
