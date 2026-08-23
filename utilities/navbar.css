@@ -207,6 +207,7 @@ button {
     position: fixed;
     left: 0;
     top: 0;
+    overflow-x: hidden;
     border-right: 1px solid var(--outline-variant);
     z-index: 50;
     transform: translateX(-100%);
@@ -234,8 +235,16 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 0;
+    overflow-wrap: break-word;
     border-bottom: 1px solid var(--outline-variant);
     flex-shrink: 0;
+}
+
+.sidebar-header h1,
+.sidebar-header p {
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .sidebar-avatar {
@@ -274,6 +283,10 @@ button {
     display: flex;
     align-items: center;
     gap: 16px;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     padding: 12px 16px;
     color: var(--on-surface-variant);
     border-radius: var(--radius-lg);
@@ -291,6 +304,14 @@ button {
     background-color: var(--secondary-container);
     color: var(--on-secondary-container);
     font-weight: 700;
+}
+
+.sidebar-nav a span:not(.material-symbols-outlined),
+.sidebar-footer a span:not(.material-symbols-outlined) {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .sidebar-nav a.active .material-symbols-outlined {
