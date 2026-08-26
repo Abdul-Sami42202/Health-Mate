@@ -11,6 +11,11 @@
         margin-left: 272px;
     }
 }
+@media (max-width: 840px) {
+    .main-content {
+        margin-top: 50px;
+    }
+}
 
 .page-content {
     flex: 1;
